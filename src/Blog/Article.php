@@ -102,8 +102,6 @@ class Article
         {
                 $this->category = $category;
 
-                $category->addArticle($this);
-
                 return $this;
         }
         

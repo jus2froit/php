@@ -14,83 +14,18 @@
 
 namespace App\Blog;
 
+use App\Blog\ANamedObject;
 use App\Blog\Article;
 
-class Category
+class Category extends ANamedObject
 {
-    private $id;
-    private $name;
-    private $description;
     private $articles;
 
     public function __construct(int $id, string $name, ?string $description, array $articles = [])
     {
-        $this -> id = $id;
-        $this -> name = $name;
-        $this -> description = $description;
-
-        // if ($articles){
-        //     $this->articles = $articles;
-        // }
-        // else {
-        //     $this->$articles = [];
-        // }
-
-
-        // $this->articles = $articles ? $articles : [];
-
-
-        // meme chose que les precedentes lignes
+        parent::__construct($id, $name, $description);
         $this->articles = $articles;
     }
-    /**
-     * Get the value of id
-     */ 
-    public function getId(): int
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get the value of name
-     */ 
-    public function getName(): string
-    {
-        return $this -> name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @return  self
-     */ 
-    public function setName(string $name): self
-    {
-        $this -> name = $name;
-        
-        return $this;
-    }
-
-    /**
-     * Get the value of description
-     */ 
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    /**
-     * Set the value of description
-     *
-     * @return  self
-     */ 
-    public function setDescription(?string $description): self
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
     
 
     /**
