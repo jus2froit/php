@@ -15,52 +15,16 @@
 namespace App\Blog;
 
 use App\Blog\ANamedObject;
-use App\Blog\Article;
+use App\Blog\Traits\Articlable;
+
 
 class Tag extends ANamedObject
 {
+    use Articlable;
 
-    private $articles;
     public function __construct(int $id, string $name, ?string $description, array $articles = [])
     {
         parent::__construct($id, $name, $description);
         $this->articles = $articles;
-    }
-
-    /**
-     * Get the value of articles
-     */ 
-    public function getArticles(): array
-    {
-        return $this->articles;
-    }
-
-    /**
-     * Set the value of articles
-     *
-     * @return  self
-     */ 
-    public function setArticles(array $articles): self
-    {
-        $this->articles = $articles;
-
-        return $this;
-    }
-
-    public function addArticle(Article $article): self
-    {
-        if (!in_array($article, $this->articles)) {
-            $this->articles[] = $article;
-        }
-    }
-
-    public function removeArticle($article)
-    {
-        $index = array_search($article, $this->article);
-        if ($index !== false){
-            array_splice($this->arricles, $index, 1);
-        }
-
-        return $this;
     }
 }
