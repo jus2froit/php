@@ -131,7 +131,7 @@ class Task
         return $this;
     }
 
-    public function addTag(Tag $tag): array
+    public function addTag(Tag $tag): self
     {
         if (!in_array($tag, $this->tags)){
             $this->tags[] = $tag;
@@ -140,7 +140,7 @@ class Task
         return $this;
     }
 
-    public function removeTag(Tag $tag): array
+    public function removeTag(Tag $tag): self
     {
         $index = array_search($tag, $this->tags);
 
